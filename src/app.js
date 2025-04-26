@@ -1,22 +1,26 @@
 const express = require('express');
+const { adminAuth } = require("./middlewares/auth")
 
 const app = express();
 
-// app.use("", (req, res, next) => {
-//     console.log("Default page");
-//     res.send("Default page");
-// });
+app.use("/admin", (req, res, next) => {
+    const token = "abcaa";
+    const isAuth = token === "abc"
+    if(!isAuth){
+        res.status(401).send("UnAuth")
+    }else {
+        next();
+    }
+})
+//or
+app.use("/admin", adminAuth);
 
-app.use("/Login", (req, res, next) => {
-    res.send("Login");
+
+app.use("/admin/getUser", (req, res, next) => {
+    res.send("Get users");
 });
-
-app.use("/regester", (req, res, next) => {
-    res.send("regester");
-});
-
-app.use("/test", (req, res, next) => {
-    res.send("test");
+app.use("/admin/delUser", (req, res, next) => {
+    res.send("Delete users");
 });
 
 app.listen(3000, () => {
