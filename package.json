@@ -1,0 +1,18 @@
+{
+  "name": "tinder",
+  "version": "1.0.0",
+  "description": "Dev Tinder",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js"
+  },
+  "keywords": [
+    "MERN"
+  ],
+  "author": "Suri",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
